@@ -7,7 +7,7 @@ const Profile = () => {
     <div className = "profile">
       <img className="profile-img" src ={Photo}></img>
       <div className ="half-p pink-bg">
-        <h2>I'm a Front-end Developer</h2>
+        <h2 className = "p-c">I'm a Front-end Developer</h2>
         <p>i have been working with html, css, javaScript, php, and i use React, Laravel, bootstrap</p>
       </div>
     </div>

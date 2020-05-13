@@ -1,53 +1,38 @@
 import React, {Component} from 'react';
-import photo from '../images/p1.jpg';
-import rowF from '../images/row.svg';
+import {ProjectsData} from '../data/projects.js';
 
 
+const Projects = () =>{
 
-class Projects extends Component{
+  let projects = ProjectsData.map( (project) => {
+    return <Project title={project.title} description={project.briefDescription} photos = {project.img_src} website={project.website} key = {project.id} />
+  });
 
-  render(){
     return(
       <div>
         <h3 className = "title p-c">Projects</h3>
-      <div className = " box pink-bg">
+      <div className = " box ">
         <div className = " table">
-            <Project id="kk"/>
-            <Project/>
-            <Project/>
-            <Project/>
-            <Project/>
-
+          {projects}
         </div>
       </div>
       </div>
     );
-  }
+
 }
 
 
 class  Project extends Component {
 
-
-  sayHello() {
-    const ep = document.getElementById('kk');
-    console.log(ep);
-    ep.style.opacity = '0';
-    alert('Hello!');
-  }
-
-
-
 render(){
-
   return(
     <section className = "col">
-      <img className = "image-project" src ={photo}></img>
-      <h2 className = "p-title p-c">title of the project</h2>
-      <small className="p-c">brief explication about the project brief explication about the project brief explication about the project </small>
-      <div className="buttons">
-        <button className = "button p-c" onClick = {this.sayHello} >Visit live website</button>
-        <button className = "button p-c" onClick = {this.sayHello}> To the Project</button>
+      <img className = "image-project" src ={ require(`../data/images/${this.props.photos[0]}`)} alt ="project photo"></img>
+      <h2 className = "p-title p-c">{this.props.title}</h2>
+      <small className="p-c">{this.props.description}</small>
+      <div className="two">
+        <a href ={this.props.website} target="_blank"><button className = "button p-c">Website</button></a>
+        <a href = "/Projects/description" ><button className = "button p-c" onClick = {this.sayHello}>Description</button></a>
       </div>
     </section>
   );}

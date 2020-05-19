@@ -33,7 +33,6 @@ class App extends Component{
       });
   }
 
-
   render(){
     return (
       <BrowserRouter>
@@ -45,7 +44,7 @@ class App extends Component{
               <Route exact  path = '/projects' render = { () => <Projects projects = {this.state.mydata}/>}/>
               <Route  path = '/contact' component = {Contact}/>
               <Route path = '/about' component = {About}/>
-              <Route  path = '/projects/:id' component ={Description}/>
+              <Route  path = '/projects/:id' render ={ ({match,history}) => <Description projects = {this.state.mydata} history = {history} match = {match}/>}/>
               <Route component = {NotFound}/>
             </Switch>
           </div>

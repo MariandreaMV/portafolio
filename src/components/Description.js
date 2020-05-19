@@ -1,41 +1,59 @@
 import React, {Component} from 'react';
-import photo1 from '../images/p1.jpg';
-import photo2 from '../images/p1.jpg';
-import photo3 from '../images/p1.jpg';
-import photo4 from '../images/p1.jpg';
+import {Consumer} from '../data/projects.js';
+import NotFound from './NotFound.js';
 
+const Description = ({history,match}) => {
 
-
-class Description extends Component {
-  render (){
     return (
-      <div className = " caja green-bg">
-        <div className = "row ">
-          <div className = "column pink-bg">
-            <h2 className = "p-title">Title of the project</h2>
-            <div className = "two">
-              <button className = "button">go Back</button>
-              <button className = "button">go to the live site</button>
-            </div>
-          </div>
-          <div className = "column">
-            <p> description of the project and the tools used for it idcsjiejdsc dijcidcusdiejec dicjioasdcjosi iudjsciedsciue dicnsdicuj ediujedsi deiujsedie dcndioefc b in ijiu hiu hhiuouhjiuo  </p>
-          </div>
-        </div>
-        <div className = "row gallery">
-          <img className = "image-d" src ={photo1} alt = "project photo"></img>
-          <img className = "image-d" src ={photo2} alt = "project photo"></img>
-          <img className = "image-d" src ={photo3} alt = "project photo"></img>
-          <img className = "image-d" src ={photo4} alt = "project photo"></img>
-          <img className = "image-d" src ={photo4} alt = "project photo"></img>
-          <img className = "image-d" src ={photo4} alt = "project photo"></img>
-        </div>
+      <div className = " caja">
+        <Consumer>
+          {context => {
 
+              function Exist(id,cant){
+                if (id < cant)
+                  return true;
+                else
+                  return false;
+              }
 
+              let id = match.params.id;
+              let exist = Exist(id,context.length);
+              if(exist){
+                let project = context[id];
+                let i=0;
+                let gallery = project.img_src.map((photo) =>
+                    <img key={i++} className = "image-d" src ={require(`../data/images/${photo}`)} alt = "project photo"></img>
+
+                );
+                return(
+                  <div>
+                    <div className = "row">
+                      <div className = " column pink-bg">
+                        <h2 className = "p-title center"> {project.title}</h2>
+                        <div className = " b-d">
+                          <a><button className = "button" onClick ={ history.goBack}>go Back</button></a>
+                          <a href= {project.website} target ="_blank"><button className = "button">website</button></a>
+                        </div>
+                      </div>
+                      <div className = "item6">
+                        <p>{project.description} </p>
+                        <p>{project.tools}</p>
+                      </div>
+                    </div>
+                    <div className = " gallery">
+                      {gallery}
+                    </div>
+                  </div>
+                );
+            }else{
+              return(
+                <NotFound/>
+              );
+            }
+          }}
+        </Consumer>
       </div>
-
     );
-  }
 }
 
 

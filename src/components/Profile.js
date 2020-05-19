@@ -8,8 +8,7 @@ const Profile = () => {
       <img className="profile-img" src ={Photo} alt ="profile photo"></img>
       <div className ="half-p pink-bg">
         <h2 className = "p-c">I'm a Front-end Developer</h2>
-        <p>i have been working with html, css, javaScript, php, and i use React, Laravel, bootstrap</p>
-        <p>i also know Java, c#, c, c++ </p>
+        <p>I'm always learning</p>
       </div>
     </div>
   );

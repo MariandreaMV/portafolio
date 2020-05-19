@@ -9,11 +9,11 @@ import Profile from './components/Profile.js';
 import Projects from './components/Projects.js';
 import Description from './components/Description.js';
 import NotFound from './components/NotFound.js';
+import About from './components/About.js';
 
 
 function App() {
   return (
-
     <BrowserRouter>
       <div className="container">
         <div className = "wrap">
@@ -22,15 +22,14 @@ function App() {
             <Route exact  path = '/' component = {Profile}/>
             <Route exact  path = '/projects' component = {Projects}/>
             <Route  path = '/contact' component = {Contact}/>
-            <Route  path = '/projects/description' render = { () => <Description/>} />
+            <Route path = '/about' component = {About}/>
+            <Route  path = '/projects/:id' component ={Description}/>
             <Route component = {NotFound}/>
           </Switch>
         </div>
         <Footer/>
       </div>
     </BrowserRouter>
-
-
   );
 }
 

@@ -104,6 +104,7 @@ hr{
 }
 
 .pink-bg{
+    border-radius: 2%;
     background-color: rgb(255, 238, 246);
 }
 
@@ -145,19 +146,19 @@ hr{
   justify-content: center;
 }
 
-.box::-webkit-scrollbar-track
+.box::-webkit-scrollbar-track,.caja::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(154, 117, 181, 0.3);
 	background-color: rgb(145, 125, 143);
 }
 
-.box::-webkit-scrollbar{
+.box::-webkit-scrollbar,.caja::-webkit-scrollbar{
 	width: 5px;
   height: 5px;
 	background-color: rgb(145, 125, 143);
 }
 
-.box::-webkit-scrollbar-thumb
+.box::-webkit-scrollbar-thumb,.caja::-webkit-scrollbar-thumb
 {
 	background-color: rgba(218, 218, 218, 0.68);
 }
@@ -212,33 +213,22 @@ hr{
 }
 
 .rowf{
-  transform: rotate(90deg);
-  position: fixed;
-  width: 40px;
+  transform: rotate(180deg);
+  width: 20px;
 }
 
 
 /* Description */
 
-.row{
-  display: flex;
-  flex-direction: column;
-}
 
-.column{
-  width: auto;
-  margin: 0 4%;
-  padding: 2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: justify;
 
-}
 
 .image-d{
-  width: 200px;
-  margin: 3%;
+  width:20%;
+  min-width: 200px;
+  margin-top: 2%;
+  max-height: 350px;
+
 }
 
 .gallery{
@@ -246,7 +236,6 @@ hr{
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  margin: 0;
   padding: 0;
   /* height: 450px; align all the items on the cross axis
   align-items: stretch; */
@@ -255,20 +244,22 @@ hr{
 }
 
 .caja{
-    height:  calc(100vh - (115.75px*2)) ;
+    height:  calc(100vh - (100.75px*2)) ;
     border-radius: 1%;
     margin-top: 5%;
     position: relative;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+
 }
 
 /* to style the active link */
 .active{
+
   border-radius: 10%;
   font-weight: bolder;
   background-color:  rgb(255, 238, 246);
-
+  color: rgb(145, 125, 143);
 }
 
 /* contact */
@@ -283,6 +274,7 @@ hr{
   flex-direction: column;
   padding: 2%;
 }
+
 
 input, textarea{
   background-color: rgba(145, 125, 143, 0.13);
@@ -309,6 +301,12 @@ input{
   justify-content: center;
 }
 
+.b-d{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -316,6 +314,13 @@ input{
 }
 
 @media (min-width : 722px) and (max-width:1600px){
+
+
+  .b-d{
+  flex-direction: row;
+    justify-content: space-between;
+
+  }
 
   .container{
     width: 80%;
@@ -382,6 +387,10 @@ input{
     justify-content: center;
 
 
+  }
+
+  .caja{
+    margin-top: 1%;
   }
 
 

@@ -1,29 +1,34 @@
 import React, {Component} from 'react';
-import {ProjectsData} from '../data/projects.js';
+import {Consumer} from '../data/projects.js';
 
 
 const Projects = () =>{
-
-  let projects = ProjectsData.map( (project) => {
-    return <Project title={project.title} description={project.briefDescription} photos = {project.img_src} website={project.website} key = {project.id} />
-  });
-
     return(
       <div>
-        <h3 className = "title p-c">Projects</h3>
+      <h3 className = "title p-c">Projects</h3>
       <div className = " box ">
-        <div className = " table">
-          {projects}
-        </div>
+      <div className = " table">
+      <Consumer>
+        { context => (
+           context.map( (project) =>
+            <Project
+              title={project.title}
+              description={project.briefDescription}
+              photos = {project.img_src}
+              website={project.website}
+              id = {project.id}
+              key = {project.id}
+            />))
+          }
+      </Consumer>
       </div>
-      </div>
+    </div>
+    </div>
     );
-
 }
 
 
 class  Project extends Component {
-
 render(){
   return(
     <section className = "col">
@@ -32,7 +37,7 @@ render(){
       <small className="p-c">{this.props.description}</small>
       <div className="two">
         <a href ={this.props.website} target="_blank"><button className = "button p-c">Website</button></a>
-        <a href = "/Projects/description" ><button className = "button p-c" onClick = {this.sayHello}>Description</button></a>
+        <a href = {`/Projects/${this.props.id}`}><button className = "button p-c" onClick = {this.sayHello}>Description</button></a>
       </div>
     </section>
   );}

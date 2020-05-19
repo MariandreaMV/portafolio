@@ -39,7 +39,7 @@ class Contact extends Component{
             <textarea rows="4"></textarea>
           </div>
           <div className = "center">
-            <button className = "button ">Send</button>
+            <button className = "button p-c">Send</button>
           </div>
         </form>
       </div>

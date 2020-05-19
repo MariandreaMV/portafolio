@@ -1,32 +1,31 @@
 import React, {Component} from 'react';
-import {Consumer} from '../data/projects.js';
 
+const Projects = (props) =>{
 
-const Projects = () =>{
+    let data = props.projects;
+
     return(
+
       <div>
       <h3 className = "title p-c">Projects</h3>
       <div className = " box ">
       <div className = " table">
-      <Consumer>
-        { context => (
-           context.map( (project) =>
+        {
+           data.map( (project) =>
             <Project
-              title={project.title}
-              description={project.briefDescription}
-              photos = {project.img_src}
-              website={project.website}
-              id = {project.id}
-              key = {project.id}
-            />))
+              title={project.fields.title}
+              description={project.fields.briefDescription}
+              photos = {project.fields.img_src}
+              website={project.fields.website}
+              id = {project.fields.id}
+              key = {project.fields.id}
+            />)
           }
-      </Consumer>
       </div>
     </div>
     </div>
     );
 }
-
 
 class  Project extends Component {
 render(){

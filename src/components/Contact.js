@@ -6,7 +6,7 @@ class Contact extends Component{
     return(
 
       <div className = "profile cont">
-        <form name="contact" method ="POST" data-netlify="true">
+        <form name="contact" action ="POST" data-netlify="true">
           <div className ="center">
           <h2 className = "p-title">I'll contact you.</h2>
           </div>

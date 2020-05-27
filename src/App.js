@@ -22,7 +22,7 @@ class App extends Component{
   }
 
   componentDidMount(){
-    axios.get('https://api.airtable.com/v0/appVCTWKCfjOZXrsW/portafolio?api_key=keymHH7kvWhAUxvgK')
+    axios.get('https://api.airtable.com/v0/appVCTWKCfjOZXrsW/portafolio?api_key=AIRTABLE_KEY')
       .then(data =>{
         this.setState({
           mydata: data.data.records

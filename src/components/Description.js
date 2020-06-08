@@ -15,17 +15,21 @@ const Description = (props) => {
 
 
   if(exist){
-    let project = props.projects[id].fields;
-    console.log(project);
+    let projects = props.projects;
+    let project;
+    projects.map( (sproject) =>{
+      if(sproject.fields.id == id)
+        project = sproject.fields;
+    });
+
     let i=0;
     let gallery = project.gallery.map((photo) =>
         <img key={photo.id} className = "image-d" src ={photo.url} alt = "project photo"></img>
     );
     return (
       <div className = " caja">
-
           <div className = "row">
-            <div className = " column pink-bg">
+            <div className = "column pink-bg">
               <h2 className = "p-title center"> {project.title}</h2>
                 <div className = " b-d">
                     <a><button className = "button" onClick ={ props.history.goBack}>go Back</button></a>
@@ -37,7 +41,7 @@ const Description = (props) => {
               <p>{project.tools}</p>
             </div>
           </div>
-          <div className = " gallery">
+          <div className = "gallery">
             {gallery}
           </div>
       </div>

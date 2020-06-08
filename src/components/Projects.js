@@ -4,7 +4,7 @@ import {Router, NavLink} from 'react-router-dom';
 const Projects = (props) =>{
 
     let data = props.projects;
-
+    console.log(data);
     return(
       <div>
       <h3 className = "title p-c">Projects</h3>
@@ -36,7 +36,7 @@ render(){
       <small className="p-c">{this.props.description}</small>
       <div className="two">
         <a href ={this.props.website} target="_blank"><button className = "button p-c">Website</button></a>
-        <NavLink to = {`/Projects/${this.props.id}`}><button className = "button p-c" onClick = {this.sayHello}>Description</button></NavLink>
+        <NavLink to = {`/Projects/${this.props.id}`}><button className = "button p-c">Description</button></NavLink>
       </div>
     </section>
   );}

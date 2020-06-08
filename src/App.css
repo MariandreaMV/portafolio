@@ -225,10 +225,9 @@ hr{
 
 .image-d{
   width:20%;
-  min-width: 200px;
+  min-width: 190px;
   margin-top: 2%;
   max-height: 350px;
-
 }
 
 .gallery{
@@ -244,13 +243,12 @@ hr{
 }
 
 .caja{
-    height:  calc(100vh - (100.75px*2)) ;
+    height:  calc(100vh - (103px*2)) ;
     border-radius: 1%;
-    margin-top: 5%;
+    margin-top: 0;
     position: relative;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-
 }
 
 /* to style the active link */
@@ -385,14 +383,10 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-
   }
 
   .caja{
     margin-top: 1%;
   }
-
-
 
 }
